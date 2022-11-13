@@ -1,0 +1,4 @@
+const arr = [
+    foo,
+    bar
+];
