@@ -25,7 +25,7 @@ end
 
 local function is_identifier_under_cursor()
     local node = ts_utils.get_node_at_cursor()
-    return node:type() == 'identifier' 
+    return node:type() == 'identifier' or node:type() == 'shorthand_property_identifier_pattern'
 end
 
 local function is_inside_where_we_cannot_add_print_statement()
@@ -41,16 +41,16 @@ local function is_inside_where_we_cannot_add_print_statement()
                     'parenthesized_expression',
                     'return_statement',
                     'array',
-                    'variable_declarator',
+                    -- 'variable_declarator',
                     'template_string',
                     'formal_parameters',
                     'arguments'
                 }, temp:type()) then
             node = temp
         end
-        -- if temp:type() == 'statement_block' then
-        --     break
-        -- end
+        if temp:type() == 'statement_block' then
+            break
+        end
         print(temp:type())
         temp = temp:parent()
     end
