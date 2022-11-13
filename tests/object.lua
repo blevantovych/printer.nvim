@@ -20,13 +20,13 @@ describe("printer", function()
           vim.api.nvim_win_set_cursor(0, {3, 9})
           printer.add_console_log()
 
-          assert.are.equal(buffer_to_string(), [[
+          assert.are.equal([[
 const obj = {
     foo: foo,
     bar: bar
 }
 console.log({ bar })
-console.log({ foo })]])
+console.log({ foo })]], buffer_to_string())
     end)
 
 end)

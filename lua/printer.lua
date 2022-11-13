@@ -51,7 +51,6 @@ local function is_inside_where_we_cannot_add_print_statement()
         if temp:type() == 'statement_block' then
             break
         end
-        print(temp:type())
         temp = temp:parent()
     end
 
