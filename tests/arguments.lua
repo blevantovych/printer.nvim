@@ -3,16 +3,14 @@ local buffer_to_string = dofile('helpers.lua').buffer_to_string
 describe("printer", function()
       local printer = require('printer')
 
-      it("handles callback arrow function", function()
-          -- go to index
-          vim.api.nvim_win_set_cursor(0, {1, 18})
+      it("handles arguments", function()
+          -- go to value
+          vim.api.nvim_win_set_cursor(0, {1, 12})
           printer.add_console_log()
 
           assert.are.equal([[
-[1, 2, 3].map((n, index) => {
-    console.log({ index })
-});]], buffer_to_string())
+doSomething(value)
+console.log({ value })]], buffer_to_string())
     end)
 
 end)
-

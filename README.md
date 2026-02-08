@@ -54,8 +54,10 @@ The statement is placed at a syntactically valid position — if the identifier 
 
 ## Tests
 
-To run tests, execute the following command in the `tests` directory:
+Tests use [plenary.nvim](https://github.com/nvim-lua/plenary.nvim). The test runner automatically clones dependencies (plenary.nvim and nvim-treesitter) on first run.
 
-```
-./run_tests.sh
+Requirements: Neovim and `git`.
+
+```sh
+./tests/run_tests.sh
 ```

@@ -51,6 +51,16 @@ local function is_inside_where_we_cannot_add_print_statement()
         if temp:type() == 'statement_block' then
             break
         end
+        local has_body = false
+        for child in temp:iter_children() do
+            if child:type() == 'statement_block' then
+                has_body = true
+                break
+            end
+        end
+        if has_body then
+            break
+        end
         temp = temp:parent()
     end
 
@@ -90,8 +100,7 @@ M.add_console_log = function()
     end
 
     -- align line
-    vim.api.nvim_feedkeys('=', 'n', false)
-    vim.api.nvim_feedkeys('=', 'n', false)
+    vim.cmd('normal! ==')
 end
 
 return M
