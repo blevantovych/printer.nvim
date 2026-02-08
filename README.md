@@ -24,7 +24,7 @@ Requires [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) w
 
 ```lua
 use {
-  "bodya17/printer.nvim",
+  "blevantovych/printer.nvim",
   requires = { "nvim-treesitter/nvim-treesitter" },
   config = function()
     vim.keymap.set("n", "<leader>p", function() require("printer").add_console_log() end, { desc = "Add console.log" })
@@ -36,7 +36,7 @@ use {
 
 ```vim
 Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'bodya17/printer.nvim'
+Plug 'blevantovych/printer.nvim'
 
 " After plug#end():
 nnoremap <leader>p <cmd>lua require("printer").add_console_log()<cr>
